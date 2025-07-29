@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="dashboard-header">
+      <div>
+        <h1>🎓 Welcome, SAHIL</h1>
+        <label class="avatar-label">
+          <input type="file" id="avatarUpload" accept="image/*" />
+          <img id="avatarPreview" src="https://via.placeholder.com/100" alt="Avatar" />
+        </label>
+      </div>
+      <div class="top-bar">
+        <button id="exportPDF" title="Export PDF">📄 Export PDF</button>
+        <button id="darkToggle" title="Toggle Dark Mode">🌙</button>
+        <button onclick="logout()">🚪 Logout</button>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin: 20px 0;">
+      <label for="semesterSelect"><strong>📚 Select Semester :</strong></label>
+      <select id="semesterSelect" onchange="changeSemester(this.value)">
+        <option value="" disabled selected>Select Semester</option>
+        <option value="Sem 1">Semester 1</option>
+        <option value="Sem 2">Semester 2</option>
+        <option value="Sem 3">Semester 3</option>
+        <option value="Sem 4">Semester 4</option>
+        <option value="Sem 5">Semester 5</option>
+        <option value="Sem 6">Semester 6</option>
+        <option value="Sem 7">Semester 7</option>
+        <option value="Sem 8">Semester 8</option>
+      </select>
+
+    </div>
+
+    <div class="input-section">
+      <input type="text" id="subject" placeholder="Subject" />
+      <input type="number" id="internal" placeholder="Internal (0–40)" />
+      <input type="number" id="final" placeholder="Final (0–60)" />
+      <input type="number" id="attendance" placeholder="Attendance (%)" />
+      <button onclick="addRecord()">Add Record</button>
+    </div>
+
+    <div id="alertBox"></div>
+    <div id="gpaBox">GPA: 0.00</div>
+
+    <h2>📋 Your Records</h2>
+
+    <div class="button-row" style="justify-content: flex-end;">
+      <button onclick="sortTable(5)">📊 Sort by Attendance</button>
+      <button onclick="sortTable(4)">🎓 Sort by Grade</button>
+      <button onclick="toggleChart()">📊 Show Chart
+    </div>
+
+    <table id="recordsTable">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Internal</th>
+          <th>Final</th>
+          <th>Total</th>
+          <th>Grade</th>
+          <th>Attendance</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+
+    <div id="chartSection" style="display: none; margin-top: 30px;">
+      <h2 style="text-align: center;">📊 Performance Charts</h2>
+      <div class="chart-container">
+        <div class="chart-box">
+          <canvas id="myChart"></canvas> <!-- Bar Chart -->
+        </div>
+        <div class="chart-box">
+          <canvas id="pieChart"></canvas> <!-- Pie Chart -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+
+</html>

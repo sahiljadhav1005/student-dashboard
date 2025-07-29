@@ -1,0 +1,353 @@
+/* 🌐 Base Reset and Variables */
+:root {
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --accent: #22c55e;
+  --danger: #ef4444;
+  --bg-light: #f9fafb;
+  --bg-dark: #1f2937;
+  --text-light: #1e293b;
+  --text-dark: #f1f5f9;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #2d3748;
+  --border-color-light: #e5e7eb;
+  --border-color-dark: #374151;
+  --font: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: all 0.3s ease;
+}
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* ✅ Login Page */
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #4f46e5, #3b82f6);
+  font-family: var(--font);
+}
+
+.login-container {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 360px;
+  transition: 0.3s ease;
+}
+
+.login-container h1 {
+  margin-bottom: 24px;
+  color: #4f46e5;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.login-container input:focus {
+  border-color: #6366f1;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background: linear-gradient(to right, #6366f1, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-container button:hover {
+  background: linear-gradient(to right, #4338ca, #2563eb);
+  transform: scale(1.02);
+}
+
+/* 📊 Dashboard Container */
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--card-bg-light);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease;
+}
+body.dark .container {
+  background: var(--card-bg-dark);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+h1, h2 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.top-bar, .input-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.input-section input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid var(--border-color-light);
+  border-radius: 10px;
+  outline: none;
+  width: 200px;
+  background: #f1f5f9;
+  transition: border 0.2s ease;
+}
+body.dark .input-section input {
+  background: #374151;
+  border-color: var(--border-color-dark);
+  color: white;
+}
+
+/* 🎨 Buttons */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  font-size: 16px;
+  background: linear-gradient(to right, #6366f1, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(to right, #4f46e5, #2563eb);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
+}
+
+/* 📋 Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+th, td {
+  padding: 14px;
+  text-align: center;
+  border: 1px solid var(--border-color-light);
+}
+body.dark th, body.dark td {
+  border-color: var(--border-color-dark);
+}
+td button {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  margin: 0 5px;
+  background-color: #dbeafe;
+  transition: transform 0.2s;
+}
+td button:hover {
+  transform: scale(1.15);
+  background-color: #93c5fd;
+}
+
+/* 📌 GPA and Alerts */
+#alertBox {
+  text-align: center;
+  font-weight: bold;
+  color: var(--danger);
+  margin-bottom: 15px;
+}
+#gpaBox {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+/* 👤 Avatar */
+.avatar-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+#avatarUpload {
+  display: none;
+}
+#avatarPreview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid var(--primary);
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+#avatarPreview:hover {
+  transform: scale(1.05);
+}
+
+/* 📈 Chart */
+canvas {
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .input-section input, .top-bar button {
+    width: 100%;
+  }
+  .dashboard-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.button-row button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 18px;
+  font-size: 15px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  color: white;
+  border: none;
+  font-weight: 500;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.button-row button:hover {
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  transform: translateY(-2px);
+}
+
+/* 📊 Chart Container Styles */
+.chart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.chart-box {
+  flex: 1 1 400px;
+  max-width: 450px;
+  height: 350px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-box canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* 🌗 Dark mode support for charts */
+body.dark .chart-box {
+  background-color: #2d3748;
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark .chart-box canvas {
+  background-color: #2d3748;
+}
+
+#semesterSelect {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #4A90E2;
+  border-radius: 25px;
+  background: linear-gradient(to right, #6366f1, #3b82f6);
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+#semesterSelect:hover {
+  background: linear-gradient(to right, #4338ca, #2563eb);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+#semesterSelect:focus {
+  border-color: #4f46e5;
+  background-color: #ffffff;
+}
+
+label[for="semesterSelect"] {
+  font-size: 22px;
+  margin-right: 12px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+body.light-mode label[for="semesterSelect"] {
+  color: #000000;
+}
+
+body.dark-mode label[for="semesterSelect"] {
+  color: #ffffff;
+}
+
