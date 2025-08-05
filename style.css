@@ -351,3 +351,13 @@ body.dark-mode label[for="semesterSelect"] {
   color: #ffffff;
 }
 
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Ensures table doesn't squish too much */
+}
